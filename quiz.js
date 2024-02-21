@@ -62,7 +62,7 @@ function createRearrangeQuestion() {
     // create buttons
     for (let i = 0; i < quiz.questions[questionNum].answers.length; i++) {
         // add button
-        htmlString += "<button onclick=\"" + i + "\">" + quiz.questions.answers[i] + "</button>";
+        htmlString += "<button onclick=\"" + i + "\">" + quiz.questions[questionNum].answers[i] + "</button>";
     };
 
     return htmlString;
@@ -85,14 +85,14 @@ function createMultichoiceQuestion() {
     var htmlString = "";
 
     // create button list
-    var buttonList = shuffleList(quiz.questions.answers[questionNum]);
+    var buttonList = shuffleList(quiz.questions[questionNum].answers[questionNum]);
 
     // answer function
     let answerFunc = "";
 
     // create buttons
     for (let i = 0; i < buttonList; i++) {
-        if (buttonList[i] == quiz.questions.answers[questionNum]) {
+        if (buttonList[i] == quiz.questions[questionNum].answers[0]) {
             answerFunc = "multichoiceCorrect()";    
         } else {
             answerFunc = "multichoiceIncorrect()";
@@ -110,7 +110,7 @@ function createSelectQuestion() {
 
     var indices = [];
 
-    for (let i = 0; i < quiz.questions; i++) {
+    for (let i = 0; i < quiz.questions[questionNum]; i++) {
         indices.push(i);
     }
 
@@ -136,8 +136,10 @@ function startQuestion(num) {
     // set quiz
     var htmlString = "";
     
+    htmlString += "<h1>" + quiz.questions[questionNum].title + "</h1>";
+
     // add question text
-    htmlString += "<h1>" + quiz.questions[questionNum].question + "</h2>";
+    htmlString += "<h2>" + quiz.questions[questionNum].question + "</h2>";
 
     // add image
     if (quiz.questions[questionNum].img != "") {
@@ -145,7 +147,7 @@ function startQuestion(num) {
     }
 
     // add answer depending on type
-    switch (questions[questionNum].type) {
+    switch (quiz.questions[questionNum].type) {
         case "rearrange":
             createRearrangeQuestion();    
             break;
