@@ -72,7 +72,7 @@ function createRearrangeQuestion() {
     // create buttons
     for (let i = 0; i < buttonList.length; i++) {
         // add button
-        htmlString += "<button onclick=\"addToken(" + i + ")\">" + quiz.questions[questionNum].answers[buttonList[i]] + "</button>";
+        htmlString += "<button onclick=\"addToken(" + buttonList[i] + ")\">" + quiz.questions[questionNum].answers[buttonList[i]] + "</button>";
     };
 
     return htmlString;
