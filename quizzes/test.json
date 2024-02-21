@@ -1,0 +1,32 @@
+{
+    "title" : "Test quiz",
+    "questions" : [
+        {
+            "type" : "rearrange",
+            "question" : "this is a test",
+            "img" : "",
+            "answers" : ["this", "is", "a", "test"]
+        },
+
+        {
+            "type" : "text",
+            "question" : "this is a test 2",
+            "img" : "",
+            "answers" : [["world", "woral"], ["agg", "eee"]]
+        },
+
+        {
+            "type" : "multichoice",
+            "question" : "this is a test 3",
+            "img" : "",
+            "answers" : ["hello", "world", "this", "test"]
+        },
+
+        {
+            "type" : "select",
+            "question" : "this is a test 3",
+            "img" : "",
+            "answers" : [["hello", "world"], ["this", "test"]]
+        }
+    ]
+}
