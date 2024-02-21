@@ -49,7 +49,7 @@ async function loadQuizFromFile() {
         const response = await fetch("./quizzes/" + qsMap["src"] + ".json");
         quiz = await response.json();
         alert("loaded");
-        
+
         // complete
         startQuiz();
     } else {
@@ -168,6 +168,7 @@ function startQuestion(num) {
     // add answer depending on type
     switch (quiz.questions[questionNum].type) {
         case "rearrange":
+            alert("rearrange");
             htmlString += createRearrangeQuestion();    
             break;
         
