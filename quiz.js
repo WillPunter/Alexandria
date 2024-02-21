@@ -177,6 +177,8 @@ function startQuestion(num) {
         htmlString += createSelectQuestion();
     }
 
+    htmlString += "<button onclick=\"checkAnswer()\">Check Answer</button>"
+
     quizBody.innerHTML = htmlString;
 }
 
@@ -198,6 +200,33 @@ function renderTokenStr() {
     }
 
     document.getElementById("answerTokens").innerHTML = htmlString;
+}
+
+// check rearrange answer
+function checkRearrangeAnswer() {
+    // iterate through answer strings
+    if (quiz.questions[questionNum].answers.length != answerTokenStr.length) {
+        return false;
+    }
+
+    for (let i = 0; i < answerTokenStr.length; i++) {
+        if (answerTokenStr[i] != quiz.questions[questionNum].answers.length) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+// check answer
+function checkAnswer() {
+    let correct = false;
+    
+    if (quiz.questions[questionNum].type == "rearrangeQuestion") {
+        correct = checkRearrangeAnswer();
+    }
+
+    alert(correct);
 }
 
 // start quiz
