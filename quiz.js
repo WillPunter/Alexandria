@@ -101,7 +101,7 @@ function createSelectQuestion() {
 
     var indices = [];
 
-    for (let i = 0; i < quiz.questions) {
+    for (let i = 0; i < quiz.questions; i++) {
         indices.push(i);
     }
 
