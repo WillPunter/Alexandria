@@ -15,6 +15,8 @@ function shuffleList(list) {
         let index = Math.floor(Math.random() * list.length);
         newList.push(list[index]);
         list.filter((x) => {return x != list[index]})
+        console.log(list);
+        console.log(list[index]);
     }
 
     return newList;
