@@ -223,6 +223,7 @@ function checkAnswer() {
     let correct = false;
     
     if (quiz.questions[questionNum].type == "rearrangeQuestion") {
+        alert("testing...");
         correct = checkRearrangeAnswer();
     }
 
