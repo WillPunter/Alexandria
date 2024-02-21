@@ -60,11 +60,11 @@ async function loadQuizFromFile() {
 // create rearrange question
 function createRearrangeQuestion() {
     var htmlString = "";
-    alert("test")
+
     // create indices array
     var indices = [];
 
-    for (let i = 0; i < quiz.questions[questionNum]; i++) {
+    for (let i = 0; i < quiz.questions[questionNum].answers.length; i++) {
         indices.push(i);
     }
 
