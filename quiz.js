@@ -48,7 +48,8 @@ async function loadQuizFromFile() {
         // look up
         const response = await fetch("./quizzes/" + qsMap["src"] + ".json");
         quiz = await response.json();
-
+        alert("loaded");
+        
         // complete
         startQuiz();
     } else {
@@ -210,4 +211,4 @@ function startQuiz() {
     startQuestion(0);
 }
 
-//loadQuizFromFile();
+loadQuizFromFile();
