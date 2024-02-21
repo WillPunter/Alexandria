@@ -136,7 +136,7 @@ function startQuestion(num) {
     // set quiz
     var htmlString = "";
     
-    htmlString += "<h1>" + quiz.questions[questionNum].title + "</h1>";
+    htmlString += "<h1>" + quiz.title + "</h1>";
 
     // add question text
     htmlString += "<h2>" + quiz.questions[questionNum].question + "</h2>";
