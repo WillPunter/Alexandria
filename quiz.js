@@ -99,10 +99,14 @@ function createMultichoiceQuestion() {
 function createSelectQuestion() {
     var htmlString = "";
 
-    for (let i = 0; i < quiz.questions)
+    var indices = [];
+
+    for (let i = 0; i < quiz.questions) {
+        indices.push(i);
+    }
 
     // create button list
-    var buttonList = shuffleList();
+    var buttonList = shuffleList(indices);
 
     // answer function
     let answerFunc = "";
@@ -151,8 +155,15 @@ function startQuestion(num) {
     }
 }
 
+// 
+function () {
+
+}
+
 // start quiz
 function startQuiz() {
     // create quiz
     startQuestion(0);
 }
+
+loadQuizFromFile();
