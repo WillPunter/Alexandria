@@ -177,7 +177,7 @@ function startQuestion(num) {
         htmlString += createSelectQuestion();
     }
 
-    htmlString += "<button onclick=\"checkAnswer()\">Check Answer</button>"
+    htmlString += "<br/><button onclick=\"checkAnswer()\">Check Answer</button><br/><div id=\"resultDiv\"></div>"
 
     quizBody.innerHTML = htmlString;
 }
@@ -223,11 +223,19 @@ function checkAnswer() {
     let correct = false;
     
     if (quiz.questions[questionNum].type == "rearrange") {
-        alert("testing");
         correct = checkRearrangeAnswer();
     }
 
-    alert(correct);
+    var htmlString = "";
+
+    if (correct) {
+        htmlString += "<h2 style=\"color: green\">Correct</h2>";
+    } else {
+
+        htmlString += "<h2 style=\"color: red\">" + incorrectStr + "</h2>";
+    }
+
+    document.getElementById("resultDiv").innerHTML = htmlString;
 }
 
 // start quiz
