@@ -74,6 +74,8 @@ function createRearrangeQuestion() {
     // create button list
     var buttonList = shuffleList(indices);
 
+    console.log(indices);
+
     // create buttons
     for (let i = 0; i < buttonList.length; i++) {
         // add button
