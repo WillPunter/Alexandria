@@ -156,9 +156,9 @@ function startQuestion(num) {
 }
 
 // 
-function () {
+//function () {
 
-}
+//}
 
 // start quiz
 function startQuiz() {
