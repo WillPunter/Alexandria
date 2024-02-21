@@ -210,7 +210,7 @@ function checkRearrangeAnswer() {
     }
 
     for (let i = 0; i < answerTokenStr.length; i++) {
-        if (answerTokenStr[i] != quiz.questions[questionNum].answers.length) {
+        if (answerTokenStr[i] != quiz.questions[questionNum].answers[i]) {
             return false;
         }
     }
