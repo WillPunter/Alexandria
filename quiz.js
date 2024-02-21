@@ -212,4 +212,4 @@ function startQuiz() {
     startQuestion(0);
 }
 
-loadQuizFromFile();
+//loadQuizFromFile();
