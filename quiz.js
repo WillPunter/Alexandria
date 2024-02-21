@@ -4,7 +4,7 @@ var quiz = []
 var questionNum = 0;
 
 // get quiz body id
-var bodyId = document.getElementById("quizBody");
+var quizBody = document.getElementById("quizBody");
 
 // shuffle list
 function shuffleList(list) {
@@ -149,21 +149,23 @@ function startQuestion(num) {
     // add answer depending on type
     switch (quiz.questions[questionNum].type) {
         case "rearrange":
-            createRearrangeQuestion();    
+            htmlString += createRearrangeQuestion();    
             break;
         
         case "text":
-            createTextQuestion();
+            htmlString += createTextQuestion();
             break;
 
         case "multichoice":
-            createMultichoiceQuestion();
+            htmlString += createMultichoiceQuestion();
             break;
 
         case "select":
-            createSelectQuestion();
+            htmlString += createSelectQuestion();
             break;
     }
+
+    quizBody.innerHTML = htmlString;
 }
 
 // 
