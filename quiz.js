@@ -48,8 +48,7 @@ async function loadQuizFromFile() {
         // look up
         const response = await fetch("./quizzes/" + qsMap["src"] + ".json");
         quiz = await response.json();
-        alert("loaded");
-
+        
         // complete
         startQuiz();
     } else {
@@ -79,7 +78,6 @@ function createRearrangeQuestion() {
     // create buttons
     for (let i = 0; i < buttonList.length; i++) {
         // add button
-        alert("test")
         htmlString += "<button onclick=\"addToken(" + buttonList[i] + ")\">" + quiz.questions[questionNum].answers[buttonList[i]] + "</button>";
     };
 
@@ -168,8 +166,6 @@ function startQuestion(num) {
         htmlString += "<img src=\"" + quiz.questions[questionNum].img + "\">";
     }
 
-    alert(quiz.questions[questionNum].type == "rearrange")
-
     // add answer depending on type
     if(quiz.questions[questionNum].type == "rearrange") {
         htmlString += createRearrangeQuestion();    
@@ -200,6 +196,8 @@ function renderTokenStr() {
     for (let i = 0; i < answerTokenStr.length; i++) {
         htmlString += answerTokenStr[i];
     }
+
+    document.getElementById("answerTokens").innerHTML = htmlString;
 }
 
 // start quiz
