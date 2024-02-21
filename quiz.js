@@ -25,7 +25,16 @@ function getQSMap() {
     const qs = window.location.search.substring(1);
 
     // split qs at & symbols
-    return qs.split("&").map((str) => {return str.split("=")})
+    const qsPairs = qs.split("&").map((str) => {return str.split("=")})
+
+    // qs map
+    let qsMap = [];
+
+    for (let i = 0; i < qsPairs.length; i++) {
+        qsMap[qsPairs[i][0]] = qsPairs[i][1];
+    }
+
+    return qsMap;
 }
 
 // load quiz from file
