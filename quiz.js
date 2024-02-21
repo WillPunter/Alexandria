@@ -166,6 +166,8 @@ function startQuestion(num) {
         htmlString += "<img src=\"" + quiz.questions[questionNum].img + "\">";
     }
 
+    alert(quiz.questions[questionNum].type)
+
     // add answer depending on type
     if(quiz.questions[questionNum].type == "rearrange") {
         htmlString += createRearrangeQuestion();    
