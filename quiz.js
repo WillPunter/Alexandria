@@ -60,7 +60,7 @@ async function loadQuizFromFile() {
 // create rearrange question
 function createRearrangeQuestion() {
     var htmlString = "";
-
+    alert("test")
     // create indices array
     var indices = [];
 
@@ -166,7 +166,7 @@ function startQuestion(num) {
         htmlString += "<img src=\"" + quiz.questions[questionNum].img + "\">";
     }
 
-    alert(quiz.questions[questionNum].type)
+    alert(quiz.questions[questionNum].type == "rearrange")
 
     // add answer depending on type
     if(quiz.questions[questionNum].type == "rearrange") {
