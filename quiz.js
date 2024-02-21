@@ -2,6 +2,7 @@
 
 var quiz = []
 var questionNum = 0;
+var answerTokenStr = [];
 
 // get quiz body id
 var quizBody = document.getElementById("quizBody");
@@ -66,6 +67,9 @@ function createRearrangeQuestion() {
         indices.push(i);
     }
 
+    // answer tokens
+    htmlString += "<div id=\"answerTokens\"></div>";
+
     // create button list
     var buttonList = shuffleList(indices);
 
@@ -74,6 +78,9 @@ function createRearrangeQuestion() {
         // add button
         htmlString += "<button onclick=\"addToken(" + buttonList[i] + ")\">" + quiz.questions[questionNum].answers[buttonList[i]] + "</button>";
     };
+
+    // reset answer token str
+    answerTokenStr = [];
 
     return htmlString;
 }
@@ -179,10 +186,23 @@ function startQuestion(num) {
     quizBody.innerHTML = htmlString;
 }
 
-// 
-//function () {
+// add token
+function addToken(num) {
+    // add token string
+    answerTokenStr.push(quiz.questions[questionNum].answers[num]);
 
-//}
+    // render token str
+    renderTokenStr();
+}
+
+// render token
+function renderTokenStr() {
+    var htmlString = "";
+
+    for (let i = 0; i < answerTokenStr.length; i++) {
+        htmlString += answerTokenStr[i];
+    }
+}
 
 // start quiz
 function startQuiz() {
