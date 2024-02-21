@@ -59,10 +59,20 @@ async function loadQuizFromFile() {
 function createRearrangeQuestion() {
     var htmlString = "";
 
+    // create indices array
+    var indices = [];
+
+    for (let i = 0; i < quiz.questions[questionNum]; i++) {
+        indices.push(i);
+    }
+
+    // create button list
+    var buttonList = shuffleList(indices);
+
     // create buttons
-    for (let i = 0; i < quiz.questions[questionNum].answers.length; i++) {
+    for (let i = 0; i < buttonList.length; i++) {
         // add button
-        htmlString += "<button onclick=\"" + i + "\">" + quiz.questions[questionNum].answers[i] + "</button>";
+        htmlString += "<button onclick=\"addToken(" + i + ")\">" + quiz.questions[questionNum].answers[buttonList[i]] + "</button>";
     };
 
     return htmlString;
@@ -108,6 +118,7 @@ function createMultichoiceQuestion() {
 function createSelectQuestion() {
     var htmlString = "";
 
+    // create indices array
     var indices = [];
 
     for (let i = 0; i < quiz.questions[questionNum]; i++) {
