@@ -166,23 +166,14 @@ function startQuestion(num) {
     }
 
     // add answer depending on type
-    switch (quiz.questions[questionNum].type) {
-        case "rearrange":
-            alert("rearrange");
-            htmlString += createRearrangeQuestion();    
-            break;
-        
-        case "text":
-            htmlString += createTextQuestion();
-            break;
-
-        case "multichoice":
-            htmlString += createMultichoiceQuestion();
-            break;
-
-        case "select":
-            htmlString += createSelectQuestion();
-            break;
+    if(quiz.questions[questionNum].type == "rearrange") {
+        htmlString += createRearrangeQuestion();    
+    } else if (quiz.questions[questionNum].type == "text") {
+        htmlString += createTextQuestion();
+    } else if (quiz.questions[questionNum].type == "multichoice") {
+        htmlString += createMultichoiceQuestion();
+    } else if (quiz.questions[questionNum].type == "select") {
+        htmlString += createSelectQuestion();
     }
 
     quizBody.innerHTML = htmlString;
